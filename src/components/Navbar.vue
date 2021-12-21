@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-100 py-0 lg:py-3 mt-2 px-0 lg:px-4 lg:mt-4 shadow-md rounded-md">
-		<div class="flex flex-col  lg:flex-row justify-between">
+		<div class="flex flex-col lg:flex-row justify-between">
 			<div class="flex items-center justify-between lg:w-auto py-3 lg:py-0 border-b lg:border-0 border-blue-100 px-2 lg:px-1">
 				<div class="title-item text-xl">Digital Al-Qur'an</div>
 				<div>
