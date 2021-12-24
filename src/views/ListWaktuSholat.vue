@@ -2,7 +2,7 @@
     <div class="mt-4"><label>Cari Nama Kota:</label></div>
     <div class="mt-2">
         <Multiselect @change="getWaktu($event)"
-            placeholder="Click Untuk Mencari Kota Tujuan"
+            placeholder="Ketik Untuk Mencari Asal Kota Tujuan"
             :filterResults="true"
             :minChars="1"
             :resolveOnLoad="true"
