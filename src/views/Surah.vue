@@ -20,7 +20,6 @@
     const store = useStore();
 
     const findSurah = e => {
-        console.log("dari emit");
         store.commit('changeIdSurah', e);
         router.push({ name: 'DetailSurah', params: { id: e } })
     }

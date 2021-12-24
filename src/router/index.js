@@ -15,7 +15,6 @@ const routes = [
         path: '/quran/:id',
         component: () => import('../views/DetailSurah.vue'),
         name: 'DetailSurah',
-        props: true,
     },
     {
         path: '/waktu_sholat',

@@ -12,4 +12,7 @@
 </script>
 
 <style>
+	.btnatas {
+        display: none;
+    }
 </style>

@@ -25,26 +25,28 @@
 </template>
 
 <script setup>
-    import { reactive, ref } from 'vue';
+    import { computed, reactive, ref } from 'vue';
+    import { useStore } from "vuex";
     import axios from "axios";
     import Multiselect from '@vueform/multiselect'
     import Table from '../components/Table.vue'
 
+        const store = useStore();
         const kota = ref(null);
         const data = reactive({
             nama_surah: [],
             jadwal_sholat: [],
         })
         
-        const result = await axios.get('https://api.banghasan.com/sholat/format/json/kota').then(e => e.data.kota).catch(e => console.log("Error: " +e))
+        store.dispatch('getKota');
+        const result = store.state.kota;
         data.nama_surah = result.map(e => e.nama);
         
         const getWaktu = params => {
-            let now = new Date().toJSON().slice(0, 10).replace(/-/g, "-");
-
             const id = result.filter(async res => {
                 if (res.nama == params) {
-                    data.jadwal_sholat = await axios.get(`https://api.banghasan.com/sholat/format/json/jadwal/kota/${res.id}/tanggal/${now}`).then(e => e.data.jadwal.data).catch(e => 'Error '+e);
+                    store.dispatch('getJadwalSholat', res);
+                    data.jadwal_sholat = store.state.jadwalSholat;
                     kota.value = res.nama;
                 }
             })
